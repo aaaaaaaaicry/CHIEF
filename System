@@ -1,0 +1,17 @@
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local response = game:HttpGet(
+    "http://key-system-d6wa.onrender.com/validate?key=" .. key .. "&hwid=" .. hwid
+)
+
+local data = HttpService:JSONDecode(response)
+
+if data.status == "valid" then
+    print("Key válida, executando script...")
+
+    -- 🔥 SEU SCRIPT AQUI DENTRO
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/aaaaaaaaicry/CHIEF/refs/heads/main/source"))()
+
+else
+    print("Key inválida:", data.status)
+end
